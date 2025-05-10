@@ -29,9 +29,9 @@ const fs = require('fs');
         .map(a => a.getAttribute('href'))
         .filter(href => href && href.endsWith('.html'));
 
-      const nomesSimples = links.map(href => href.split('/').pop());
-
-      const nomePagina = location.pathname.split('/').pop() || 'home.html';
+        
+        const nomePagina = location.pathname.split('/').pop() || 'home.html';
+        const nomesSimples = links.map(href => href.split('/').pop()).filter(nome => nome !== nomePagina);
 
       return {
         nome: nomePagina,
