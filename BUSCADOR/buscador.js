@@ -55,7 +55,7 @@ function ranquearPaginas(termoBusca){
         const qtdTermo = (pagina.info.conteudo.match(new RegExp(termoBusca, 'gi')) || []).length;
         
         const pontosTermo = qtdTermo * 5;
-        const pontosLinks = pagina.info.linksRecebidos * 10;
+        const pontosLinks = pagina.info.linksPara * 10;
         const autorreferencia = pagina.info.linksPara.includes(pagina.nome) ? -15 : 0;
 
         const total = pontosTermo + pontosLinks + autorreferencia;
