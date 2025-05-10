@@ -1,5 +1,4 @@
 const puppeteer = require('puppeteer');
-// const express = require('express');
 const path = require('path');
 const fs = require('fs');
 
@@ -24,24 +23,29 @@ const fs = require('fs');
     await page.goto(url, { waitUntil: 'networkidle2' });
 
     const dados = await page.evaluate(() => {
-      const links = Array.from(document.querySelectorAll('a'))
+      const anchors = Array.from(document.querySelectorAll('a'));
+
+      const links = anchors
         .map(a => a.getAttribute('href'))
         .filter(href => href && href.endsWith('.html'));
+
+      const nomesSimples = links.map(href => href.split('/').pop());
 
       const nomePagina = location.pathname.split('/').pop() || 'home.html';
 
       return {
         nome: nomePagina,
         info: {
-          linksPara: links,
+          linksPara: nomesSimples,
+          linksReais: links,
           conteudo: document.body.innerHTML
         }
       };
     });
 
-    resultados.push({ url, ...dados });
+    resultados.push({ url, nome: dados.nome, info: { linksPara: dados.info.linksPara, conteudo: dados.info.conteudo } });
 
-    const linksAbsolutos = dados.info.linksPara.map(href =>
+    const linksAbsolutos = dados.info.linksReais.map(href =>
       new URL(href, url).href
     );
 
