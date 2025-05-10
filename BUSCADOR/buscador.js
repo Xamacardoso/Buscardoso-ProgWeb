@@ -1,6 +1,7 @@
 const fs = require('fs');
 const {exec} = require('child_process');
 
+// Resolvendo erro do iglesio
 const paginas = [];
 
 async function buscarPaginas() {
