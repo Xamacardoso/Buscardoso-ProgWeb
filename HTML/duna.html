@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/indexStyle.css">
     <link rel="stylesheet" href="../CSS/duna.css">
+    <link rel="stylesheet" href="../CSS/buscador.css">
 </head>
 <body>
     <div class="noise"></div>
@@ -18,9 +19,21 @@
     <div id="desertBackground">
     </div>
     <div class="container movie-detail-container">
-        <a href="../index.html" class="back-button">
-            <span class="back-arrow">←</span> Voltar ao Lobby
-        </a>
+        <div id="navigation-bar" class="navigation-bar">
+            <a href="../index.html" class="back-button">
+                <span class="back-arrow">←</span> Voltar ao Lobby
+            </a> 
+            <!-- Campo de busca à direita com tema do Duna -->
+            <div class="search-container-nav">
+                <div class="search-box search-box-duna">
+                    <input type="text" id="search-input" placeholder="Buscar filmes de ficção científica...">
+                    <button class="search-button search-button-duna">BUSCAR</button>
+                </div>
+            </div>
+        </div>
+
+<!-- Resultados da busca -->
+        <div id="search-results" class="search-results"></div>
         
         <header class="movie-header">
             <div class="film-strip">
@@ -160,5 +173,6 @@
     
     <script src="../SCRIPT/indexScript.js"></script>
     <script src="../SCRIPT/movies.js"></script>
+    <script src="../BUSCADOR/buscadorScript.js"></script>
 </body>
 </html>

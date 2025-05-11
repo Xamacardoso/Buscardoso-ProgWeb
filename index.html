@@ -6,6 +6,7 @@
     <title>Cinema Retrô - Lobby</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/indexStyle.css">
+    <link rel="stylesheet" href="./CSS/buscador.css">
 </head>
 <body>
     <div class="noise"></div>
@@ -29,6 +30,17 @@
             </div>
         </header>
         
+        <!-- Campo de busca adicionado abaixo do header -->
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Buscar filmes de ficção científica...">
+                <button class="search-button">BUSCAR</button>
+            </div>
+        </div>
+        
+        <!-- Resultados da busca -->
+        <div id="search-results" class="search-results"></div>
+
         <div class="movies">
             <a href="./HTML/matrix.html" class="movie-card">
                 <img src="https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg" alt="Matrix" class="movie-poster">
@@ -55,7 +67,7 @@
             </a>
 
             <a href="./HTML/duna.html" class="movie-card">
-                <img src="https://www.dvd-premiery.cz/data/imgauto/6/0/204204_01.jpg" alt="Blade Runner" class="movie-poster">
+                <img src="https://www.dvd-premiery.cz/data/imgauto/6/0/204204_01.jpg" alt="Duna" class="movie-poster">
                 <div class="movie-title">DUNA: PARTE 1</div>
                 <div class="ticket-stub">SALA 05</div>
             </a>
@@ -77,5 +89,6 @@
     </div>
     
     <script src="./SCRIPT/indexScript.js"></script>
+    <script src="./BUSCADOR/buscadorScript.js"></script>
 </body>
 </html>

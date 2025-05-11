@@ -1,6 +1,6 @@
 /* Estilos específicos para a página do filme Duna */
 #desertBackground {
-    background: url('https://www.wallpapergap.com/cdn/24/331/dune-wallpaper-4k-desktop-2052x1154.jpg') no-repeat center center;
+    background: url('../ASSET/dune-wallpaper-4k-desktop-2052x1154.jpg') no-repeat center center;
     background-size: cover;
     position: fixed;    /* para que o fundo ocupe sempre toda a viewport */
     top: 0;

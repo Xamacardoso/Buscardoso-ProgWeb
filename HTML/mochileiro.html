@@ -10,16 +10,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@400;700&family=Special+Elite&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/indexStyle.css">
     <link rel="stylesheet" href="../CSS/mochileiro.css">
+    <link rel="stylesheet" href="../CSS/buscador.css">
 </head>
 <body>
     <div class="noise"></div>
     <div class="space-background"></div>
     
     <div class="container movie-detail-container">
-        <a href="../index.html" class="back-button">
-            <span class="back-arrow">←</span> Voltar ao Lobby
-        </a>
+        <div id="navigation-bar" class="navigation-bar">
+            <a href="../index.html" class="back-button">
+                <span class="back-arrow">←</span> Voltar ao Lobby
+            </a> 
+            <!-- Campo de busca à direita com tema do Mochileiro -->
+            <div class="search-container-nav">
+                <div class="search-box search-box-mochileiro">
+                    <input type="text" id="search-input" placeholder="Buscar filmes de ficção científica...">
+                    <button class="search-button search-button-mochileiro">BUSCAR</button>
+                </div>
+            </div>
+        </div>
         
+        <!-- Resultados da busca -->
+        <div id="search-results" class="search-results"></div>
+
         <header class="movie-header">
             <div class="film-strip">
                 <div class="film-cell"></div>
@@ -31,7 +44,6 @@
                 <div class="film-cell"></div>
                 <div class="film-cell"></div>
             </div>
-            
             <h1 class="movie-title-large">O GUIA DO MOCHILEIRO DAS GALÁXIAS</h1>
             <div class="subtitle">Não Entre em Pânico</div>
             <div class="digital-42">42</div>
@@ -172,5 +184,6 @@
     
     <script src="../SCRIPT/indexScript.js"></script>
     <script src="../SCRIPT/movies.js"></script>
+    <script src="../BUSCADOR/buscadorScript.js"></script>
 </body>
 </html>

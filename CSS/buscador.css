@@ -1,0 +1,390 @@
+/* Estilos para o campo de busca e resultados */
+.search-container {
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  padding: 0 20px;
+}
+
+/* Novo estilo para o container de busca na barra de navegação */
+.search-container-nav {
+  max-width: 400px;
+  padding: 0;
+}
+
+/* Barra de navegação que contém o botão de voltar e a busca */
+.navigation-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: normal;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  width: 100%;
+}
+
+/* Estilos base para caixas de busca */
+.search-box {
+  display: flex;
+  background-color: #1a1a1a;
+  border: 3px solid #b30000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos personalizados para cada filme */
+/* Mochileiro das Galáxias - Azul espacial */
+.search-box-mochileiro {
+  background-color: #1a237e;
+  border: 3px solid #4fc3f7;
+}
+
+/* Matrix - Verde digital */
+.search-box-matrix {
+  background-color: #000000;
+  border: 3px solid #00ff00;
+}
+
+/* Blade Runner - Neon futurista */
+.search-box-blade-runner {
+  background-color: #1a1a1a;
+  border: 3px solid #ff00ff;
+}
+
+/* Interestelar - Azul cósmico */
+.search-box-interestelar {
+  background-color: #0d253f;
+  border: 3px solid #ffd700;
+}
+
+/* Duna - Tons terrosos */
+.search-box-duna {
+  background-color: #3e2723;
+  border: 3px solid #ff9800;
+}
+
+/* Estilos para o campo de entrada */
+#search-input {
+  flex: 1;
+  padding: 12px 15px;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+}
+
+#search-input:focus {
+  outline: none;
+}
+
+#search-input::placeholder {
+  color: #666;
+}
+
+/* Estilos base para botões de busca */
+.search-button {
+  background-color: #b30000;
+  color: #ffd700;
+  border: none;
+  padding: 0 20px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #ffd700;
+  color: #b30000;
+  transform: translateY(-2px);
+}
+
+/* Botões personalizados para cada filme */
+/* Mochileiro das Galáxias */
+.search-button-mochileiro {
+  background-color: #4fc3f7;
+  color: #1a237e;
+}
+
+.search-button-mochileiro:hover {
+  background-color: #ffffff;
+  color: #1a237e;
+}
+
+/* Matrix */
+.search-button-matrix {
+  background-color: #00ff00;
+  color: #000000;
+}
+
+.search-button-matrix:hover {
+  background-color: #000000;
+  color: #00ff00;
+}
+
+/* Blade Runner */
+.search-button-blade-runner {
+  background-color: #ff00ff;
+  color: #1a1a1a;
+}
+
+.search-button-blade-runner:hover {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+/* Interestelar */
+.search-button-interestelar {
+  background-color: #ffd700;
+  color: #0d253f;
+}
+
+.search-button-interestelar:hover {
+  background-color: #ffffff;
+  color: #0d253f;
+}
+
+/* Duna */
+.search-button-duna {
+  background-color: #ff9800;
+  color: #3e2723;
+}
+
+.search-button-duna:hover {
+  background-color: #ffffff;
+  color: #3e2723;
+}
+
+/* Estilos para os resultados da busca */
+.search-results {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 800px;
+  max-height: 0;
+  overflow: hidden;
+  background-color: rgba(26, 26, 26, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  z-index: 100;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.search-results.active {
+  max-height: 80vh;
+  padding: 20px;
+  overflow-y: auto;
+  border-color: #b30000;
+}
+
+.result-item {
+  display: flex;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #333;
+}
+
+.result-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.result-poster {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 2px solid #333;
+  transition: border-color 0.3s ease;
+}
+
+.result-item:hover .result-poster {
+  border-color: #b30000;
+}
+
+.result-info {
+  flex: 1;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.result-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.8rem;
+  color: #ffd700;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.result-details {
+  margin-bottom: 15px;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.result-details span {
+  margin-right: 15px;
+}
+
+.result-score {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+/* Estilos base para links de resultado */
+.result-link {
+  align-self: flex-start;
+  background-color: #b30000;
+  color: #fff;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.result-link:hover {
+  background-color: #ffd700;
+  color: #b30000;
+  transform: translateY(-2px);
+}
+
+/* Links personalizados para cada filme */
+/* Mochileiro das Galáxias */
+.result-link-mochileiro {
+  align-self: flex-start;
+  background-color: #4fc3f7;
+  color: #1a237e;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.result-link-mochileiro:hover {
+  background-color: #ffffff;
+  color: #1a237e;
+  transform: translateY(-2px);
+}
+
+/* Matrix */
+.result-link-matrix {
+  align-self: flex-start;
+  background-color: #00ff00;
+  color: #000000;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.result-link-matrix:hover {
+  background-color: #ffffff;
+  color: #000000;
+  transform: translateY(-2px);
+}
+
+/* Blade Runner */
+.result-link-blade-runner {
+  align-self: flex-start;
+  background-color: #ff00ff;
+  color: #1a1a1a;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.result-link-blade-runner:hover {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+/* Interestelar */
+.result-link-interestelar {
+  align-self: flex-start;
+  background-color: #ffd700;
+  color: #0d253f;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.result-link-interestelar:hover {
+  background-color: #ffffff;
+  color: #0d253f;
+  transform: translateY(-2px);
+}
+
+/* Duna */
+.result-link-duna {
+  align-self: flex-start;
+  background-color: #ff9800;
+  color: #3e2723;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.result-link-duna:hover {
+  background-color: #ffffff;
+  color: #3e2723;
+  transform: translateY(-2px);
+}
+
+.no-results {
+  text-align: center;
+  padding: 30px;
+  color: #ccc;
+  font-style: italic;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .navigation-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-container-nav {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .result-item {
+    flex-direction: column;
+  }
+
+  .result-poster {
+    width: 120px;
+    margin-bottom: 15px;
+  }
+
+  .result-info {
+    margin-left: 0;
+  }
+}
