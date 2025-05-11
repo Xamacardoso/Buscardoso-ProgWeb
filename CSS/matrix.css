@@ -1,4 +1,15 @@
 /* Estilos específicos para a página do filme Matrix */
+#matrixBackground {
+    background: url('../ASSET/Matrix\ wallpaper\ gif.gif') no-repeat center center;
+    background-size: cover;
+    position: fixed;    /* para que o fundo ocupe sempre toda a viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.3;
+  }
 
 .movie-detail-container {
     padding-top: 30px;
