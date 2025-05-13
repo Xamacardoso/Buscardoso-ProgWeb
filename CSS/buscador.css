@@ -388,3 +388,99 @@
     margin-left: 0;
   }
 }
+
+/* Esconde elementos que iniciam ocultos */
+.hidden { display: none !important; }
+
+/* Botão de abrir a tabela */
+.btn-tabela {
+  background: #c00; color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Conteúdo do modal */
+.modal-content {
+  background: #111;
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 1000px;
+  color: #eee;
+  position: relative;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color:#b30000;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Botão de fechar */
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #c00;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  color: #b30000;
+  filter: drop-shadow(0 0 5px #b30000);
+}
+
+/* Tabela dentro do modal */
+.table-wrapper {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.ranking-table th,
+.ranking-table td {
+  padding: 0.5rem;
+  border: 1px solid #444;
+  text-align: center;
+}
+
+.ranking-table th {
+  background: #222;
+  color: #ffd700;
+}
+
+.ranking-table thead {
+  background: #222;
+  color: #fff;
+}
+
+.ranking-table tbody tr:nth-child(odd) {
+  background: #111;
+}

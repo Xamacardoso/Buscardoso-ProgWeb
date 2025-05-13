@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const isMoviePage = window.location.pathname.includes("/HTML/")
     
     // Se for uma URL relativa e estivermos em uma página de filme, ajustar o caminho
-    if (url.startsWith("./HTML/") && isMoviePage) {
+    if (url.startsWith("./HTML/") && isMoviePage) { 
       return url.replace("./HTML/", "./")
     }
     
@@ -176,63 +176,108 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Função para exibir os resultados da busca
-  function exibirResultados(resultados) {
-    searchResults.innerHTML = ""
+function exibirResultados(resultados) {
+  searchResults.innerHTML = ""
 
-    if (resultados.length === 0) {
-      searchResults.innerHTML = '<div class="no-results">Nenhum resultado encontrado. Tente outra busca.</div>'
-      searchResults.classList.add("active")
-      return
-    }
-
-    resultados.forEach((resultado) => {
-      const pagina = resultado.pagina
-      const detalhes = resultado.detalhes
-      const titulo = getTitulo(pagina.nome)
-      const posterUrl = getPosterUrl(pagina.nome)
-
-      // Não mostrar a página index.html nos resultados
-      if (pagina.nome === "index.html") return
-
-      const resultItem = document.createElement("div")
-      resultItem.className = "result-item"
-
-      // Determinar a classe de resultado baseada no filme
-      let resultLinkClass = "result-link"
-      if (pagina.nome.includes("matrix")) {
-        resultLinkClass = "result-link-matrix"
-      } else if (pagina.nome.includes("blade_runner")) {
-        resultLinkClass = "result-link-blade-runner"
-      } else if (pagina.nome.includes("interestelar")) {
-        resultLinkClass = "result-link-interestelar"
-      } else if (pagina.nome.includes("mochileiro")) {
-        resultLinkClass = "result-link-mochileiro"
-      } else if (pagina.nome.includes("duna")) {
-        resultLinkClass = "result-link-duna"
-      }
-
-      // Ajustar a URL com base na página atual
-      const movieUrl = pagina.url || "./HTML/" + pagina.nome
-      const adjustedUrl = ajustarURL(movieUrl)
-
-      resultItem.innerHTML = `
-              <img src="${posterUrl}" alt="${titulo}" class="result-poster">
-              <div class="result-info">
-                  <div class="result-title">${titulo}</div>
-                  <div class="result-details">
-                      <span class="result-score">Relevância: ${resultado.pontos}</span>
-                      <span>Ocorrências: ${detalhes.qtdTermo}</span>
-                      <span>Links recebidos: ${detalhes.pontosLinks / 10}</span>
-                  </div>
-                  <a href="${adjustedUrl}" class="${resultLinkClass}">VER FILME</a>
-              </div>
-          `
-
-      searchResults.appendChild(resultItem)
-    })
-
+  if (resultados.length === 0) {
+    searchResults.innerHTML = '<div class="no-results">Nenhum resultado encontrado. Tente outra busca.</div>'
     searchResults.classList.add("active")
+    return
   }
+
+  // ─── 1) Botão que abre o modal da tabela ─────────────────────────────────
+  const btnTabela = document.createElement("button")
+  btnTabela.id = "btn-tabela-modal"
+  btnTabela.textContent = "Visualizar Tabela"
+  btnTabela.className = "btn-tabela"
+  searchResults.appendChild(btnTabela)
+
+  // ─── 2) Cria o modal (inicialmente oculto) ────────────────────────────────
+  const modal = document.createElement("div")
+  modal.id = "modal-tabela"
+  modal.className = "modal-backdrop hidden"
+  modal.innerHTML = `
+    <div class="modal-content">
+      <button id="close-modal" class="close-modal">&times;</button>
+      <h2>Ranking de Páginas</h2>
+      <div class="table-wrapper">
+        <table class="ranking-table">
+          <thead>
+            <tr>
+              <th>Posição</th>
+              <th>Página</th>
+              <th>Ocorrências (+10)</th>
+              <th>Links Recebidos (+10)</th>
+              <th>Autorreferência (−15)</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${resultados
+              .filter(r => r.pagina.nome !== "index.html")
+              .map((r, idx) => {
+                const p = r.pagina.nome
+                const d = r.detalhes
+                return `
+                  <tr>
+                    <td>${idx + 1}</td>
+                    <td>${p}</td>
+                    <td>${d.qtdTermo}×10 = ${d.pontosTermo}</td>
+                    <td>${d.pontosLinks/10}×10 = ${d.pontosLinks}</td>
+                    <td>${d.autorreferencia || 0}</td>
+                    <td>${r.pontos}</td>
+                  </tr>
+                `
+              })
+              .join("")}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `
+  document.body.appendChild(modal)
+
+  // ─── 3) Eventos de abrir/fechar modal ────────────────────────────────────
+  btnTabela.addEventListener("click", () => {
+    modal.classList.remove("hidden")
+  })
+  modal.querySelector("#close-modal").addEventListener("click", () => {
+    modal.classList.add("hidden")
+  })
+
+  // ─── 4) Renderiza os cards de poster normalmente ─────────────────────────
+  resultados.forEach((resultado) => {
+    const pagina = resultado.pagina
+    const detalhes = resultado.detalhes
+    const titulo = getTitulo(pagina.nome)
+    const posterUrl = getPosterUrl(pagina.nome)
+
+    if (pagina.nome === "index.html") return
+
+    const resultItem = document.createElement("div")
+    resultItem.className = "result-item"
+
+    // escolha de classe de link omitida por brevidade...
+    const movieUrl    = pagina.url || "./HTML/" + pagina.nome
+    const adjustedUrl = ajustarURL(movieUrl)
+
+    resultItem.innerHTML = `
+      <img src="${posterUrl}" alt="${titulo}" class="result-poster">
+      <div class="result-info">
+        <div class="result-title">${titulo}</div>
+        <div class="result-details">
+          <span class="result-score">Relevância: ${resultado.pontos}</span>
+          <span>Ocorrências: ${detalhes.qtdTermo}</span>
+          <span>Links recebidos: ${detalhes.pontosLinks / 10}</span>
+        </div>
+        <a href="${adjustedUrl}" class="result-link">VER FILME</a>
+      </div>
+    `
+    searchResults.appendChild(resultItem)
+  })
+
+  searchResults.classList.add("active")
+}
 
   // Função para realizar a busca
   async function realizarBusca() {

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Embarque em 'De Volta Para o Futuro', uma aventura épica de ficção científica e viagem no tempo.">
+    <meta name="keywords" content="De Volta Para o Futuro, ficção científica, aventura, viagem no tempo, cinema retrô">
+    <meta name="author" content="Equipe Cinema Retrô">
+    <title>De Volta Para o Futuro - Cinema Retrô</title>
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Estilos gerais -->
+    <link rel="stylesheet" href="../CSS/indexStyle.css">
+    <!-- Buscador -->
+    <link rel="stylesheet" href="../CSS/buscador.css">
+    <!-- Estilos específicos: fundo e detalhes futuristas -->
+    <link rel="stylesheet" href="../CSS/back_future.css">
+</head>
+<body>
+    <!-- Fundo -->
+    <div class="fundo-gradiente"></div>
+    <canvas id="warpBg"></canvas>
+
+    <div class="stars"></div>
+
+    <div class="container movie-detail-container-future">
+        <!-- Navegação superior -->
+        <div id="navigation-bar" class="navigation-bar">
+            <a href="../index.html" class="back-button">
+                <span class="back-arrow">←</span> Voltar ao Lobby
+            </a>
+            <div class="search-container-nav">
+                <div class="search-box search-box-future">
+                    <input type="text" id="search-input" placeholder="Buscar filmes de aventura e ficção científica...">
+                    <button class="search-button search-button-future">BUSCAR</button>
+                </div>
+            </div>
+        </div>
+        <div id="search-results" class="search-results"></div>
+
+        <!-- Cabeçalho do filme -->
+        <header class="movie-header">
+            <div class="film-strip">
+                <div class="film-cell"></div><div class="film-cell"></div><div class="film-cell"></div><div class="film-cell"></div>
+                <div class="film-cell"></div><div class="film-cell"></div><div class="film-cell"></div><div class="film-cell"></div>
+            </div>
+            <h1 class="movie-title-large">De Volta Para o Futuro</h1>
+            <div class="subtitle">Onde o Tempo é Apenas o Começo</div>
+        </header>
+
+        <!-- Conteúdo principal -->
+        <div class="movie-content">
+            <!-- Poster e dados -->
+            <div class="movie-poster-large">
+                <img src="https://upload.wikimedia.org/wikipedia/pt/9/97/BackFuturePoster.jpg?20150401153011" alt="Poster de De Volta Para o Futuro">
+                <div class="movie-meta">
+                    <div class="meta-item"><span class="meta-label">Ano:</span><span class="meta-value">1985</span></div>
+                    <div class="meta-item"><span class="meta-label">Direção:</span><span class="meta-value">Robert Zemeckis</span></div>
+                    <div class="meta-item"><span class="meta-label">Duração:</span><span class="meta-value">116 min</span></div>
+                    <div class="meta-item"><span class="meta-label">Classificação:</span><span class="meta-value">PG</span></div>
+                </div>
+                <div class="ticket-stub-large">SALA 06</div>
+                <div class="session-times">
+                    <h3>HORÁRIOS</h3>
+                    <div class="times">
+                        <span class="time">14:00</span>
+                        <span class="time">17:30</span>
+                        <span class="time">21:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Informações do filme -->
+            <div class="movie-info">
+                <div class="info-section">
+                    <h2>Sinopse</h2>
+                    <p><strong>De Volta para o Futuro</strong> é uma jornada atemporal que mistura aventura, comédia e ficção científica. Marty McFly, um adolescente de 17 anos, é acidentalmente transportado de 1985 para 1955 em uma máquina do tempo construída pelo excêntrico Dr. Emmett "Doc" Brown. Ao chegar ao passado, Marty encontra seus pais ainda jovens e, sem querer, interfere no momento crucial em que eles se conhecem, colocando em risco sua própria existência.</p>
+                    <p>Agora, Marty deve garantir que seus pais se apaixonem e se casem, enquanto busca uma maneira de retornar ao futuro. Com a ajuda de Doc, ele enfrenta desafios e situações inusitadas, aprendendo sobre destino, coragem e a importância de cada escolha na linha do tempo. Uma história que transcende gerações e continua a encantar públicos ao redor do mundo.</p>
+                </div>
+
+                <div class="info-section">
+                    <h2>Elenco Destacado</h2>
+                    <div class="cast">
+                        <div class="cast-member">
+                            <div class="cast-photo" style="background-image: url('https://cdn.britannica.com/33/130633-050-DA6DF1CF/Michael-J-Fox-activist.jpg')"></div>
+                            <div class="cast-name">Michael J. Fox</div>
+                            <div class="cast-character">Marty McFly</div>
+                        </div>
+                        <div class="cast-member">
+                            <div class="cast-photo" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/ChristopherLloyd2022.jpg/1200px-ChristopherLloyd2022.jpg')"></div>
+                            <div class="cast-name">Christopher Lloyd</div>
+                            <div class="cast-character">Dr. Emmett "Doc" Brown</div>
+                        </div>
+                        <div class="cast-member">
+                            <div class="cast-photo" style="background-image: url('https://m.media-amazon.com/images/M/MV5BNTgwNDE2MTY2MV5BMl5BanBnXkFtZTgwMzQxMDc2MjI@._V1_FMjpg_UX1000_.jpg')"></div>
+                            <div class="cast-name">Lea Thompson</div>
+                            <div class="cast-character">Lorraine Baines McFly</div>
+                        </div>
+                        <div class="cast-member">
+                            <div class="cast-photo" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMjM0NDg4NjE4NF5BMl5BanBnXkFtZTgwNTk4OTgwMjI@._V1_.jpg')"></div>
+                            <div class="cast-name">Crispin Glover</div>
+                            <div class="cast-character">George McFly</div>
+                        </div>
+                        <div class="cast-member">
+                            <div class="cast-photo" style="background-image: url('data:image/jpeg;base64,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')"></div>
+                            <div class="cast-name">Thomas F. Wilson</div>
+                            <div class="cast-character">Biff Tannen</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-section">
+                    <h2>Inovações Visuais</h2>
+                    <p>Combinando efeitos inovadores e design futurista, <em>De Volta para o Futuro</em> estabeleceu um novo padrão para o gênero de ficção científica nos anos 1980. O uso criativo de time-lapse, trilhos de pneus flamejantes e o icônico DeLorean transformaram a estética do filme em um marco cinematográfico.</p>
+                    <p>O DeLorean, projetado por Giorgetto Giugiaro da Italdesign, destaca-se por suas portas asa de gaivota e painéis de aço inoxidável, conferindo-lhe um visual futurista que se tornou sinônimo de viagem no tempo. No filme, a máquina do tempo é alimentada por um "capacitor de fluxo" e requer 1,21 gigawatts de energia para ativar a viagem temporal, uma ideia que, embora fictícia, capturou a imaginação do público.</p>
+                    <p>Os efeitos visuais, como o efeito "time slice" e as trilhas de fogo deixadas pelos pneus, foram criados através de uma combinação de animação, efeitos práticos e manipulação óptica, resultando em sequências que ainda são admiradas por sua inovação técnica e criatividade visual.</p>
+
+                </div>
+                <div class="quote-section">
+                    <blockquote>"Great Scott!"<cite>— Dr. Emmett "Doc" Brown</cite></blockquote>
+                </div>
+                <div class="trailer-section">
+                    <h2>Trailer</h2>
+                    <div class="trailer-frame">
+                        <div class="trailer-placeholder" data-video-id="qvsgGtivCgs">
+                            <div class="play-button">▶</div>
+                            <div class="trailer-text">Clique para assistir ao trailer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Outras sessões em cartaz -->
+        <div class="related-movies">
+            <h2>Outros Filmes em Cartaz</h2>
+            <div class="related-grid">
+                <a href="blade_runner.html" class="related-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg" alt="Blade Runner">
+                    <div class="related-title">BLADE RUNNER</div>
+                </a>
+                <a href="interestelar.html" class="related-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" alt="Interestelar">
+                    <div class="related-title">INTERESTELAR</div>
+                </a>
+                <a href="matrix.html" class="related-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg" alt="Matrix">
+                    <div class="related-title">MATRIX</div>
+                </a>
+            </div>
+        </div>
+        <footer>
+            <div class="film-strip">
+                <div class="film-cell"></div>
+                <div class="film-cell"></div>
+                <div class="film-cell"></div>
+                <div class="film-cell"></div>
+                <div class="film-cell"></div>
+                <div class="film-cell"></div>
+                <div class="film-cell"></div>
+                <div class="film-cell"></div>
+            </div>
+        <p>Desenvolvido por 
+        <span class="autores">
+            <a id="arthur" href=https://github.com/ArthurV10 target="_blank">Arthur Vieira</a>, 
+            <a id="iglesio" href="https://github.com/Iglesiojunior" target="_blank">Iglesio Junior</a>, 
+            <a id="nicolas" href="https://github.com/NicolasRaf" target="_blank">Nícolas Rafael</a> e 
+            <a id="xama" href="https://github.com/Xamacardoso" target="_blank">Xamã Cardoso</a>
+        </span>
+        </p>Cinema Retrô &copy; 2025 - Todos os direitos reservados</p>
+        </footer>
+  </div>
+    
+    <script src="../SCRIPT/indexScript.js"></script>
+    <script src="../SCRIPT/movies.js"></script>
+    <script src="../BUSCADOR/buscadorScript.js"></script>
+</body>
+</html>

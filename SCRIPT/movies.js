@@ -76,3 +76,47 @@ document.addEventListener('DOMContentLoaded', function() {
     // Executa o efeito de cintilação a cada 100ms
     setInterval(flickerEffect, 100);
 });
+
+(function() {
+  const canvas = document.getElementById('warpBg');
+  const ctx = canvas.getContext('2d');
+
+  // Redimensiona o canvas à janela
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  let t = 0;
+  function drawWarp() {
+    
+    t += 0.01;  // controle de velocidade
+
+    // esmaece o quadro anterior
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    const cx = canvas.width / 2;
+    const cy = canvas.height / 2;
+    const maxR = Math.hypot(cx, cy);
+
+    // círculos concêntricos que se expandem
+    for (let i = 0; i < 80; i++) {
+      const progress = (i / 70 + t) % 1;
+      const radius = progress * maxR;
+      const alpha = 1.5 - progress;
+      ctx.strokeStyle = `rgba(255,102,0,${alpha * 0.25})`;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    requestAnimationFrame(drawWarp);
+  }
+
+  drawWarp();
+})();
+
