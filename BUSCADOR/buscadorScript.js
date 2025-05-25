@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const isMoviePage = window.location.pathname.includes("/HTML/")
       
       // Ajustar o caminho do JSON com base na localização atual
-      const jsonPath = isMoviePage ? "../CRAWLER/pagina.json" : "./CRAWLER/pagina.json"
+      const jsonPath = "https://crawler-buscardoso-production.up.railway.app/pagina.json"
       
       console.log("Tentando carregar JSON de:", jsonPath)
       
