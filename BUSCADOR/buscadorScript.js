@@ -140,6 +140,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return "https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg"
     } else if (nomeArquivo.includes("duna")) {
       return "https://www.dvd-premiery.cz/data/imgauto/6/0/204204_01.jpg"
+    } else if (nomeArquivo.includes("back_future")) {
+      return "https://upload.wikimedia.org/wikipedia/pt/9/97/BackFuturePoster.jpg?20150401153011"
     }
     return ""
   }
@@ -156,6 +158,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return "BLADE RUNNER"
     } else if (nomeArquivo.includes("duna")) {
       return "DUNA: PARTE 1"
+    } else if (nomeArquivo.includes("back_future")) {
+      return "DE VOLTA PARA O FUTURO"
     } else if (nomeArquivo.includes("index")) {
       return "PÁGINA INICIAL"
     }

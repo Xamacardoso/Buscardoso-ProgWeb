@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 (function() {
+  // Obtém o canvas e seu contexto de desenho 2D
   const canvas = document.getElementById('warpBg');
   const ctx = canvas.getContext('2d');
 
@@ -86,37 +87,45 @@ document.addEventListener('DOMContentLoaded', function() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   }
+  // Executa ao redimensionar a janela
   window.addEventListener('resize', resize);
   resize();
 
   let t = 0;
+  // Desenha o efeito de distorção
   function drawWarp() {
-    
-    t += 0.01;  // controle de velocidade
+    // Incrementa o tempo (controla a velocidade)
+    t += 0.01;  
 
-    // esmaece o quadro anterior
+    // Esmaece o quadro anterior
     ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+    // Obtém o ponto central do canvas
     const cx = canvas.width / 2;
     const cy = canvas.height / 2;
     const maxR = Math.hypot(cx, cy);
 
-    // círculos concêntricos que se expandem
+    // Círculos concêntricos que se expandem
     for (let i = 0; i < 80; i++) {
+      // Calcula o progresso do círculo atual
       const progress = (i / 70 + t) % 1;
       const radius = progress * maxR;
       const alpha = 1.5 - progress;
+      // Configura a cor e opacidade da linha
       ctx.strokeStyle = `rgba(255,102,0,${alpha * 0.25})`;
       ctx.lineWidth = 2;
+      // Desenha o círculo
       ctx.beginPath();
       ctx.arc(cx, cy, radius, 0, Math.PI * 2);
       ctx.stroke();
     }
 
+    // Solicita a próxima frame
     requestAnimationFrame(drawWarp);
   }
 
+  // Inicia o efeito de distorção
   drawWarp();
 })();
 
